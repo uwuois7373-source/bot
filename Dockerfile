@@ -9,7 +9,7 @@ ENV UV_COMPILE_BYTECODE=1 \
 # Install project dependencies with build tools available
 WORKDIR /build
 
-RUN --mount=type=cache,target=/root/.cache/uv \
+RUN --mount=type=cache,id=s/ec97946e-0240-4f1b-9671-b78d94dc3a64-/root/.cache/uv,target=/root/.cache/uv \
   --mount=type=bind,source=uv.lock,target=uv.lock \
   --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
   uv sync --frozen --no-dev
